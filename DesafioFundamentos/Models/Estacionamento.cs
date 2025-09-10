@@ -15,11 +15,17 @@ namespace DesafioFundamentos.Models
         public void AdicionarVeiculo()
         {
             // TODO: Pedir para o usuário digitar uma placa (ReadLine) e adicionar na lista "veiculos"
-            // *IMPLEMENTE AQUI*
-            Console.WriteLine("Digite a placa do veículo para estacionar:");
-            string placa = Console.ReadLine();
+            // R:       Realizado a validação da placa com o método criado na classe ValidationHelper, 
+            //          também adicionei uma verificação para não cadastrar placas repetidas.
+            string placa = ValidationHelper.LerPlacaComValidacao("\nDigite a placa do veículo para estacionar: ");
+                // Verificação se a placa já está cadastrada
+                if (veiculos.Any(x => x.ToUpper() == placa.ToUpper()))
+                {
+                    Console.WriteLine("\nEste veículo já está estacionado!\n");
+                    return;
+                }
             veiculos.Add(placa);
-            Console.WriteLine("Veículo cadastrado com sucesso!");
+            Console.WriteLine("\nVeículo cadastrado com sucesso!\n");
         }
 
         public void RemoverVeiculo()
