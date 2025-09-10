@@ -43,8 +43,8 @@ namespace DesafioFundamentos.Models
             {
                 // TODO: Pedir para o usuário digitar a quantidade de horas que o veículo permaneceu estacionado,
                 // TODO: Realizar o seguinte cálculo: "precoInicial + precoPorHora * horas" para a variável valorTotal                
-                // Realizado a validação de horas com o método criado na classe ValidationHelper, realização do calculo do  
-                // valor a ser pago.
+                // R:   Realizado a validação de horas com o método criado na classe ValidationHelper, realização do calculo do  
+                //      valor a ser pago.
 
                 int horas = 0;
                 decimal valorTotal = 0;
@@ -54,7 +54,7 @@ namespace DesafioFundamentos.Models
                 decimal valorTotal = precoInicial + (precoPorHora * horas);
 
                 // TODO: Remover a placa digitada da lista de veículos
-                // Remove a placa digitada da lista de veículos
+                // R:   Remove a placa digitada da lista de veículos
 
                 veiculos.Remove(placa);
 
@@ -73,7 +73,11 @@ namespace DesafioFundamentos.Models
             {
                 Console.WriteLine("Os veículos estacionados são:");
                 // TODO: Realizar um laço de repetição, exibindo os veículos estacionados
-                // *IMPLEMENTE AQUI*
+                // R:   Laço de repetição para exibir os veículos
+                foreach (var veiculo in veiculos)
+                {
+                    Console.WriteLine(veiculo);
+                }
             }
             else
             {
