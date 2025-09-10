@@ -6,13 +6,12 @@ Console.OutputEncoding = System.Text.Encoding.UTF8;
 decimal precoInicial = 0;
 decimal precoPorHora = 0;
 
-//Por preferencia pessoal, alterei a forma como os valores são solicitados ao usuário
-Console.Write("\nSeja bem vindo ao sistema de estacionamento!\n" +
-                  "\nDigite o preço inicial: "); 
-precoInicial = Convert.ToDecimal(Console.ReadLine());
+//R:    Por preferencia pessoal, alterei a forma como os valores são solicitados ao usuário
+Console.WriteLine("Seja bem vindo ao sistema de estacionamento!");
 
-Console.Write("\nAgora digite o preço por hora: ");
-precoPorHora = Convert.ToDecimal(Console.ReadLine());
+//R:    Solicitando os preços com validação usando a classe ValidationHelper
+precoInicial = ValidationHelper.LerDecimalComValidacao("\nDigite o preço inicial: ");
+precoPorHora = ValidationHelper.LerDecimalComValidacao("\nAgora digite o preço por hora: ");
 
 // Instancia a classe Estacionamento, já com os valores obtidos anteriormente
 Estacionamento es = new Estacionamento(precoInicial, precoPorHora);
@@ -53,8 +52,8 @@ while (exibirMenu)
             break;
     }
 
-    Console.WriteLine("Pressione uma tecla para continuar");
+    Console.WriteLine("\nPressione uma tecla para continuar");
     Console.ReadLine();
 }
 
-Console.WriteLine("O programa se encerrou");
+Console.WriteLine("\nO programa se encerrou");

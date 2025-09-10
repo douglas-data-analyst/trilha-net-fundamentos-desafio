@@ -49,20 +49,20 @@ namespace DesafioFundamentos.Models
                 int horas = 0;
                 decimal valorTotal = 0;
 
-                int horas = ValidationHelper.LerInteiroComValidacao("\nDigite a quantidade de horas que o veículo permaneceu estacionado: ");
+                horas = ValidationHelper.LerInteiroComValidacao("\nDigite a quantidade de horas que o veículo permaneceu estacionado: "); // <-- Removido 'int'
 
-                decimal valorTotal = precoInicial + (precoPorHora * horas);
+                valorTotal = precoInicial + (precoPorHora * horas); 
 
                 // TODO: Remover a placa digitada da lista de veículos
                 // R:   Remove a placa digitada da lista de veículos
 
                 veiculos.Remove(placa);
 
-                Console.WriteLine($"O veículo {placa} foi removido e o preço total foi de: R$ {valorTotal:F2}");
+                Console.WriteLine($"\nO veículo {placa} foi removido e o preço total foi de: R$ {valorTotal:F2}");
             }
             else
             {
-                Console.WriteLine("Desculpe, esse veículo não está estacionado aqui. Confira se digitou a placa corretamente");
+                Console.WriteLine("\nDesculpe, esse veículo não está estacionado aqui. Confira se digitou a placa corretamente");
             }
         }
 
@@ -71,7 +71,7 @@ namespace DesafioFundamentos.Models
             // Verifica se há veículos no estacionamento
             if (veiculos.Any())
             {
-                Console.WriteLine("Os veículos estacionados são:");
+                Console.WriteLine("\nOs veículos estacionados são:\n");
                 // TODO: Realizar um laço de repetição, exibindo os veículos estacionados
                 // R:   Laço de repetição para exibir os veículos
                 foreach (var veiculo in veiculos)
@@ -81,7 +81,7 @@ namespace DesafioFundamentos.Models
             }
             else
             {
-                Console.WriteLine("Não há veículos estacionados.");
+                Console.WriteLine("\nNão há veículos estacionados.");
             }
         }
     }
